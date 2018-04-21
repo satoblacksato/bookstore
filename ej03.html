@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" 
+        src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+</html>
+<body>
+    <main>
+            <table>
+                <thead>
+                    <th>NOMBRE</th>
+                    <th>APELLIDO</th>
+                </thead>
+                <tbody>
+                    <tr v-for="(item ,idx) in users">
+                        <td>{{item.nombre}}</td>
+                        <td>{{item.apellido}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            {{ $data }}
+    </main>
+</body>
+<script type="text/javascript">
+    new Vue({
+         el:'main',
+         data:{
+                users:[
+                    {'nombre':'Ernesto','apellido':'liberio'},
+                    {'nombre':'Gerardo','apellido':'Vera'},
+                    {'nombre':'Martha','apellido':'Vera'}
+                ]
+         }
+    });
+</script>

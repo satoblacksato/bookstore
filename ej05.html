@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" 
+        src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script type="text/javascript" 
+         src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    </head>
+</html>
+<body>
+    <main>
+        <button @click="loadData()">CARGAR</button>
+           
+            <ol v-if="posts">
+                    <li v-for="(post,idx) in posts">
+                            {{ post.title }}
+                    </li>
+            </ol>
+            <span v-else>ESPERANDO DATOS</span>
+            {{ $data }}
+    </main>
+</body>
+<script type="text/javascript">
+    new Vue({
+         el:'main',
+         data:{
+               posts:null
+         },
+         methods:{
+             loadData(){
+                    axios.get("https://jsonplaceholder.typicode.com/posts")
+                    .then((respuesta)=>{
+                            this.posts=respuesta.data;
+                    });
+             }
+         }
+    });
+</script>

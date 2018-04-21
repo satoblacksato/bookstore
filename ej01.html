@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" 
+        src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+</html>
+<body>
+    <main>
+            <h1>{{ texto }}</h1>
+            <input type="text" v-model="texto"/>
+            {{ $data }}
+    </main>
+</body>
+<script type="text/javascript">
+    new Vue({
+         el:'main',
+         data:{
+                texto:'hola mundo'
+         }
+    });
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" 
+        src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+</html>
+<body>
+    <main>
+            {{ $data }}
+            <input v-model="nota"/>
+            <b v-if="nota && nota>6 && nota<=10">APROBADO </b>
+            <b v-else-if="nota && nota>10">FUERA DE RANGO </b>
+            <b v-else>REPROBADO </b>
+    </main>
+</body>
+<script type="text/javascript">
+    new Vue({
+         el:'main',
+         data:{
+                nota:'6'
+         }
+    });
+</script>
