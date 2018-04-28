@@ -7,6 +7,7 @@ Vue.use(Vuetify,{
 		primary:colors.red.darken1,
 		secondary:colors.red.lighten4,
 		accent: colors.indigo.base,
-		error: colors.red.accent3
+		error: colors.red.accent3,
+		bluecustom: colors.blue.lighten1
 	}
 });
