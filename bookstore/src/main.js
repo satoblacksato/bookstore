@@ -12,6 +12,9 @@ firebase.initializeApp(firebaseConfig);
 export const db=firebase.firestore(); 
 
 import i18n from '@/config/i18n';
+import store from '@/store';
+
+require('./config/vuetify');
 
 Vue.config.productionTip = false
 
@@ -20,6 +23,7 @@ new Vue({
   el: '#app',
   router,
   i18n,
+  store,
   components: { App },
   template: '<App/>'
 })
