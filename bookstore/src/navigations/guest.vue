@@ -5,7 +5,7 @@
     
     <v-toolbar-title>
     		<v-btn color="accent" to="/">
-    			CURSO VUE
+    			CURSO VUE 
     		</v-btn>
 	</v-toolbar-title>
     <v-spacer></v-spacer>
@@ -53,7 +53,7 @@
 		mixins:[navigationMixing],
 		data(){
 			return{
-				drawer:true,
+				drawer:false,
 				items:[
 					{title: 'Inicio', icon:'home',to:'/' },
 					{title: 'Login', icon:'forward',to:'/login' },
