@@ -10,7 +10,7 @@ import firebaseConfig from '@/config/firebase';
 firebase.initializeApp(firebaseConfig); 
 firebase.firestore().settings( { timestampsInSnapshots: true })
 export const db=firebase.firestore(); 
-//db.firestore.settings({ timestampsInSnapshots: true });
+
 
 import i18n from '@/config/i18n';
 import store from '@/store';

@@ -3,7 +3,7 @@
       <v-app>
         <v-content  v-if="$store.state.loaded">
           <guest-navigation v-if="role === 'guest'" />
-          <admin-navigation v-if="role === 'customer'" />
+          <admin-navigation v-if="role === 'admin'" />
           
 
           <v-container class="mt-3 mb-3">

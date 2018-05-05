@@ -3,6 +3,9 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
+import AdminHome from '@/components/AdminHome'
+import AdminProducts from '@/components/AdminProducts'
+
 Vue.use(Router)
 
 
@@ -38,6 +41,19 @@ const router = new Router({
       component: Login,
       meta:{Auth:false, title:'Login'},
       beforeEnter: (to, from, next) => beforeEnter(to, from, next)
+    },
+    {
+      path:'/admin',
+      name:'Admin',
+      component: AdminHome,
+      meta:{Auth:true,title:'Administracion','role':'admin' },
+      children:[
+        {
+          path:'products',
+          component:AdminProducts,
+          meta:{title:'Administrar Libros'}
+        }
+      ]
     }
   ]
 })
