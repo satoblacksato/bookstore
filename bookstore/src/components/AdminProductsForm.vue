@@ -37,7 +37,7 @@
           	{{$t('common.close')}}
           </v-btn>
           <v-btn color="green darken-1" flat 
-                  v-if="$store.getters.productsDialogEditMode">Actualizar</v-btn>
+                  v-if="$store.getters.productsDialogEditMode" @click="update">Actualizar</v-btn>
           <v-btn  v-else color="green darken-1" @click="add" flat>Agregar</v-btn>
         </v-card-actions>
       </v-card>
@@ -84,6 +84,27 @@ import FileInput from "@/components/helpers/FileInput";
 			},
 			getUploadFile(e){
 				this.image=e;
+			},
+			update(){
+				const product=Object.assign({},this.productForEdit);
+				db.collection('products').doc(product.id).update(product).then(
+					()=>{
+						if(this.image){
+							if(product.url){
+								this.$store.dispatch('removeFile',product).then(
+									()=>{
+										this.$store.dispatch('updateDeletedProduct',product.id);
+									}
+								)
+							}
+							this.$store.dispatch('pushFileToStorage',{fileToUpload:this.image,id: product.id}).then(()=>{
+								alert('actualizado');
+							})	
+						}else{
+							alert('actualizado');
+						}
+					}
+				)
 			}
 		},
 		computed:{
