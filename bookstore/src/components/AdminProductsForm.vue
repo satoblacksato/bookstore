@@ -33,7 +33,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" flat @click="cerrar">
+          <v-btn color="green darken-1" flat @click="close">
           	{{$t('common.close')}}
           </v-btn>
           <v-btn color="green darken-1" flat 
@@ -53,7 +53,7 @@ import FileInput from "@/components/helpers/FileInput";
 		name:"admin-products-form",
 		components:{FileInput},
 		methods:{
-			cerrar(){
+			close(){
 				this.$store.commit('toggleProductsDialog',{
 					editMode:false,
 					product:{
@@ -81,6 +81,9 @@ import FileInput from "@/components/helpers/FileInput";
 							alert('guardado');
 						}
 					});
+			},
+			getUploadFile(e){
+				this.image=e;
 			}
 		},
 		computed:{
